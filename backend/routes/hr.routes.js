@@ -1,0 +1,12 @@
+const r = require('express').Router();
+const c = require('../controllers/hr.controller');
+const { authenticate } = require('../middleware/auth.middleware');
+const { isHR, isManager } = require('../middleware/role.middleware');
+r.get('/flags', authenticate, isHR, c.getFlags);
+r.post('/flags', authenticate, isManager, c.createFlag);
+r.patch('/flags/:id', authenticate, isHR, c.updateFlag);
+r.delete('/flags/:id', authenticate, isHR, c.deleteFlag);
+r.get('/awards', authenticate, c.getAwards);
+r.post('/awards/nominate', authenticate, isManager, c.nominate);
+r.patch('/awards/:id', authenticate, isHR, c.updateAward);
+module.exports = r;

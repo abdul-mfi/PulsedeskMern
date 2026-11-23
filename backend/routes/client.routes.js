@@ -1,0 +1,10 @@
+const r = require('express').Router();
+const c = require('../controllers/client.controller');
+const { authenticate } = require('../middleware/auth.middleware');
+const { isManager } = require('../middleware/role.middleware');
+r.get('/', authenticate, c.getAll);
+r.get('/:id', authenticate, c.getOne);
+r.post('/', authenticate, isManager, c.create);
+r.patch('/:id', authenticate, isManager, c.update);
+r.delete('/:id', authenticate, isManager, c.remove);
+module.exports = r;

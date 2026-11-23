@@ -1,0 +1,26 @@
+# dependencies
+
+
+/backend/node_modules
+/fronted/node_modules
+
+
+
+# next.js
+
+/backend/.next/
+/fronted/.next/
+
+
+
+# .git
+
+/backend/.git/
+/fronted/.git/
+
+
+# zip
+
+/backend/*.zip
+/fronted/*.zip
+
